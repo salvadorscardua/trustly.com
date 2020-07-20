@@ -56,8 +56,7 @@ public class HelloWorldResource {
         
         if (name.isPresent()) {
 
-            // write your code here
-            //"https://github.com/AlexeyAB/darknet"
+            //ex: "https://github.com/AlexeyAB/darknet"
             
             try{
                 this.url = new URL(name.get() + "/archive/master.zip");
@@ -145,20 +144,20 @@ public class HelloWorldResource {
                         e.printStackTrace();
                     }
 
-                    // Processa Contagem
+                    // Process Count
 
                     // List file-extension
                     if (fileExtension.contains(extension)){
-                        // soma
+                        // sum
                         total[ fileExtension.indexOf(extension) ][TOTAL_BYTES] += (long)entry.getSize();
                         total[ fileExtension.indexOf(extension) ][TOTAL_LINES] += lineCount;
                         total[ fileExtension.indexOf(extension) ][TOTAL_FILES] += 1;
 
                     } else if (extension != "" && !extension.contains("/")) {
-                        // acrescenta
+                        // add
                         fileExtension.add(extension);
 
-                        // inicializa
+                        // init
                         total[ fileExtension.indexOf(extension) ][TOTAL_BYTES] = (long)entry.getSize();
                         total[ fileExtension.indexOf(extension) ][TOTAL_LINES] = lineCount;
                         total[ fileExtension.indexOf(extension) ][TOTAL_FILES] = 1;
@@ -166,7 +165,7 @@ public class HelloWorldResource {
 
                 });
 
-                // Gerar Json
+                // Json
                 //System.out.println("Initial ArrayList: {} " + fileExtension);
                 //System.out.println(Arrays.deepToString(total));
 
